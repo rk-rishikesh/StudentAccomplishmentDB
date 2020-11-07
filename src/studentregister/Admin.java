@@ -136,8 +136,10 @@ class Admin {
 		if (tempStudent == null) {
 			System.out.println("ID not present, Student not Found");
 		}
-		else
+		else{
 			tempStudent.setPassWord(password);
+			studentRegister.put(ID, tempStudent);
+		}
 	}
 	
 	public void view(String ID) {
