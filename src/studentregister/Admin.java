@@ -31,9 +31,11 @@ class Admin {
 			System.out.println(tempStudent.toString());
 			int choice = -1;
 			do {
-				System.out.println("What do you want to edit?\n 1. Name \n 2. Current Semester \n 3.Shift \n 4.SGPA \n 5.Name of Event \n 6.Accomplishment \n 0.Exit \n");
+				System.out.println("\nWhat do you want to edit ?\n 1. Name \n 2. Current Semester \n 3. Shift \n 4. SGPA \n 5. Name of Event \n 6. Accomplishment \n 0. Exit and Save Changes\n");
 				choice = input.nextInt();
 				switch (choice) {
+				case 0:
+					break;
 				case 1:
 					System.out.println("Enter the Student's First Name");
 					String fname = input.next();
@@ -62,7 +64,7 @@ class Admin {
 						System.out.println("INVALID SEMESTER !!");
 					else {
 						System.out.println("Enter the SGPA");
-						int sgpa=input.nextInt();
+						float sgpa=input.nextFloat();
 						tempStudent.setSGPA(sem, sgpa);
 					}
 					studentRegister.put(ID, tempStudent);
@@ -92,7 +94,7 @@ class Admin {
 		if (tempStudent == null) {
 			System.out.println("ID not present, Student not Found");
 		} else {
-			System.out.println(tempStudent.toString() + "\ndeleted");
+			System.out.println(tempStudent.toString() + "\n\n ==== Deleted ====");
 		}
 	}
 
@@ -117,12 +119,18 @@ class Admin {
 
 	}
 
-	public boolean matchPassword(String ID, String password)
+	public boolean IDexist(String ID)
 	{
 		Student tempStudent = studentRegister.get(ID);
 		if (tempStudent == null) {
 			System.out.println("ID not present, Student not Found");
+			return false;
 		}
+		return true;
+	}
+	public boolean matchPassword(String ID, String password)
+	{
+		Student tempStudent = studentRegister.get(ID);
 		if(tempStudent.getPassWord().equals(password))
 		{
 			return true;
@@ -152,7 +160,7 @@ class Admin {
 					System.out.println("ID not present, Student not Found");
 				}
 				else {
-					System.out.println("------------ Student Details ------------");
+					System.out.println("\n------------ Student Details ------------");
 					System.out.println(" Student ID        : " + tempStudent.getStudentId());
 					System.out.println(" Student Name 	   : " + tempStudent.getStudentName());
 					System.out.println(" Current Semester  : " + tempStudent.getCurrSem());
@@ -162,7 +170,7 @@ class Admin {
 					}
 					System.out.println(" Name of Event 	   : " + tempStudent.getNameOfEvent());
 					System.out.println(" Accomplishment    : " + tempStudent.getAccomplishment());
-					System.out.println("------------------------------------------");
+					System.out.println("------------------------------------------\n");
 				}
 		}
 	}
