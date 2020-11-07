@@ -158,7 +158,6 @@ public class StudentRegisterDriver {
 													
 														System.out.println("Enter the your ID");
 														String logIDInteger = input.next();
-														System.out.println(logIDInteger);
 													
 														System.out.println("Enter password");
 														String password = input.next();
@@ -180,7 +179,11 @@ public class StudentRegisterDriver {
 														String newPassword = input.next();
 														admin.resetPassword(newIDInteger, newPassword);
 														System.out.println(" Passsword reset successfully !! \n\n Kindly login to view your credentials.");
-													
+														try {
+															admin.save();
+														} catch (Exception e) {
+															e.printStackTrace();
+														}
 						
 													break;
 													
