@@ -157,6 +157,6 @@ class Student implements Serializable {
 	@Override
 	public String toString() {
 
-		return "Student Name: " + this.STU_NAME + "\nStudent ID: " + this.STU_ID + "\nCurrent Semester:" + this.CRN_SEM;
+		return "\nStudent Name     : " + this.STU_NAME + "\nStudent ID       : " + this.STU_ID + "\nCurrent Semester : " + this.CRN_SEM;
 	}
 }
